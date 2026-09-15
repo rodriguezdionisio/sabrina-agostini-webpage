@@ -50,9 +50,10 @@ La comunicación puede atraer especialmente a personas interesadas en composici�
 - Presencial en La Plata.
 - Online para personas de todo Argentina.
 
-### Consultorio
+### Consultorios
 
-Av. 38 Nº 920, La Plata, Buenos Aires, Consultorio X.
+- **Ondas de Choque:** Av. 13 Nº 493, La Plata, Buenos Aires.
+- **Cirec:** Calle 35 Nº 828, La Plata, Buenos Aires.
 
 ---
 
@@ -86,7 +87,7 @@ La primera maqueta fue aprobada como referencia visual.
 6. ¿Para quién es?
 7. Instagram
 8. FAQ
-9. Consultorio / ubicación
+9. Consultorios / ubicación
 10. CTA final
 11. Footer
 
@@ -182,13 +183,16 @@ El programa debe destacarse visualmente como servicio de mayor valor.
 - [x] Links reales de Instagram y LinkedIn cargados/confirmados por el usuario.
 - [x] Assets de branding disponibles en `assets/images/`.
 - [x] `logo-gris.jpeg` integrado en la marca del header/footer.
+- [x] Fotografías reales integradas en Hero, Sobre mí e Instagram.
+- [x] Consultorios de Ondas de Choque y Cirec integrados.
+- [x] Links directos a las fichas correspondientes de Google Maps.
+- [x] Botón flotante de WhatsApp con icono SVG visible, sin depender del asset PNG.
+- [x] Tarjetas de consultorios igualadas verticalmente para alinear direcciones y botones.
 
 ### Pendiente
 
-- [ ] Fotografías reales de Sabrina.
-- [ ] Posts reales de Instagram.
 - [ ] URL real de Calendly.
-- [ ] Google Maps/embed definitivo.
+- [ ] Google Maps/embed visual definitivo.
 - [ ] Favicon.
 - [ ] Open Graph / imagen para compartir.
 - [ ] Sitemap y robots.txt.
@@ -215,8 +219,11 @@ Actualmente el repositorio contiene:
 - `assets/images/logo-linkedin.png`
 - `assets/images/logo-tiktok.png`
 - `assets/images/logo-whatsapp.png`
-
-El próximo trabajo visual es definir cuál versión del logo conviene utilizar en cada contexto y cargar las fotografías reales.
+- `assets/images/sabrina-001.jpeg`
+- `assets/images/sabrina-002.jpeg`
+- `assets/images/sabrina-003.jpg`
+- `assets/images/sabrina-004.jpg`
+- `assets/images/sabrina-005.jpg`
 
 ---
 
@@ -230,19 +237,20 @@ Validación de estructura, contenido general y dirección visual.
 
 ### V0.1 — Contenido y branding real
 
-**Estado: en curso / parcialmente completado.**
+**Estado: prácticamente completado.**
 
 - Logo integrado.
 - Copy validado.
 - Redes sociales confirmadas.
 - WhatsApp confirmado.
-- Fotografías pendientes.
-- Contenido visual de Instagram pendiente.
+- Fotografías reales integradas.
+- Contenido visual de Instagram integrado.
+- Consultorios y links de Google Maps integrados.
 
 ### V0.2 — Conversión e integraciones
 
 - Calendly.
-- Google Maps.
+- Google Maps/embed visual definitivo.
 - Revisión completa de CTAs y flujo de reserva.
 - Evaluar Mercado Pago si corresponde al proceso de contratación/pago.
 
@@ -280,6 +288,8 @@ Validación de estructura, contenido general y dirección visual.
 - Antropometría es presencial por naturaleza.
 - El Programa de recomposición corporal debe percibirse como una propuesta de acompañamiento de mayor valor, no simplemente como otra consulta.
 - No agregar funcionalidades innecesarias que hagan que el sitio parezca una aplicación compleja.
+- Las fichas de Google Maps de cada consultorio deben abrirse directamente en una nueva pestaña.
+- Las tarjetas de ambos consultorios deben mantener alturas y posiciones equivalentes para que direcciones y botones queden alineados.
 
 ---
 
@@ -313,6 +323,10 @@ La idea es mantener la arquitectura simple mientras el proyecto no requiera func
 - Se confirmó que Instagram y LinkedIn ya tienen links reales en el repositorio.
 - Se verificaron los assets de branding existentes.
 - Se integró `logo-gris.jpeg` reemplazando el placeholder visual de la marca.
+- Se integraron fotografías reales en la landing.
+- Se integraron los dos consultorios con sus fichas de Google Maps.
+- Se reemplazó el icono PNG del botón flotante de WhatsApp por un SVG inline para asegurar su visibilidad.
+- Se ajustó la estructura de las tarjetas de consultorios para alinear verticalmente direcciones y botones.
 - Se identificó Calendly como el principal placeholder funcional pendiente.
 
 ### Próximas actualizaciones
