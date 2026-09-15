@@ -34,6 +34,20 @@ document.querySelectorAll("[data-link]").forEach((a) => {
   }
 });
 
+// Reemplaza el placeholder "SA" por el logo real del proyecto.
+document.querySelectorAll(".brand-mark").forEach((mark) => {
+  const logo = document.createElement("img");
+  logo.src = "assets/images/logo-gris.jpeg";
+  logo.alt = "Sabrina Agostini — Lic. en Nutrición";
+  logo.width = 38;
+  logo.height = 38;
+  logo.style.width = "38px";
+  logo.style.height = "38px";
+  logo.style.objectFit = "contain";
+  logo.style.borderRadius = "50%";
+  mark.replaceChildren(logo);
+});
+
 const toggle = document.querySelector(".menu-toggle");
 const menu = document.querySelector(".main-menu");
 
