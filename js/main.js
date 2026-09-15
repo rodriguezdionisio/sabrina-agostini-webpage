@@ -8,44 +8,31 @@ const SITE_CONFIG = {
     {
       name: "Ondas de Choque",
       address: "Av. 13 Nº 493",
-      mapsUrl:
-        "https://www.google.com/maps/search/?api=1&query=Av.+13+493,+La+Plata,+Buenos+Aires",
+      mapsUrl: "https://www.google.com/maps/search/?api=1&query=Av.+13+493,+La+Plata,+Buenos+Aires",
     },
     {
       name: "Cirec",
       address: "Calle 35 Nº 828",
-      mapsUrl:
-        "https://www.google.com/maps/search/?api=1&query=Calle+35+828,+La+Plata,+Buenos+Aires",
+      mapsUrl: "https://www.google.com/maps/search/?api=1&query=Calle+35+828,+La+Plata,+Buenos+Aires",
     },
   ],
 };
 
 function link(type) {
   if (type === "whatsapp") {
-    return `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(
-      SITE_CONFIG.whatsappMessage,
-    )}`;
+    return `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(SITE_CONFIG.whatsappMessage)}`;
   }
-
-  return (
-    {
-      calendly: SITE_CONFIG.calendlyUrl,
-      instagram: SITE_CONFIG.instagramUrl,
-      linkedin: SITE_CONFIG.linkedinUrl,
-    }[type] || "#"
-  );
+  return ({ calendly: SITE_CONFIG.calendlyUrl, instagram: SITE_CONFIG.instagramUrl, linkedin: SITE_CONFIG.linkedinUrl }[type] || "#");
 }
 
 document.querySelectorAll("[data-link]").forEach((a) => {
   a.href = link(a.dataset.link);
-
   if (["instagram", "linkedin"].includes(a.dataset.link)) {
     a.target = "_blank";
     a.rel = "noopener noreferrer";
   }
 });
 
-// Reemplaza el placeholder "SA" por el logo real del proyecto.
 document.querySelectorAll(".brand-mark").forEach((mark) => {
   const logo = document.createElement("img");
   logo.src = "assets/images/logo-gris.jpeg";
@@ -59,13 +46,11 @@ document.querySelectorAll(".brand-mark").forEach((mark) => {
   mark.replaceChildren(logo);
 });
 
-// Fotos reales: se usan las imágenes disponibles en assets/images.
 const photoSlots = document.querySelectorAll(".photo-placeholder");
 const photoConfig = [
   ["assets/images/sabrina-001.jpeg", "Sabrina Agostini — Lic. en Nutrición"],
   ["assets/images/sabrina-002.jpeg", "Sabrina Agostini"],
 ];
-
 photoSlots.forEach((slot, index) => {
   const [src, alt] = photoConfig[index] || photoConfig[0];
   const img = document.createElement("img");
@@ -78,13 +63,7 @@ photoSlots.forEach((slot, index) => {
   slot.classList.add("has-real-photo");
 });
 
-// Las tres piezas restantes se aprovechan como galería visual del bloque Instagram.
-const instagramPosts = [
-  "assets/images/sabrina-003.jpg",
-  "assets/images/sabrina-004.jpg",
-  "assets/images/sabrina-005.jpg",
-];
-
+const instagramPosts = ["assets/images/sabrina-003.jpg", "assets/images/sabrina-004.jpg", "assets/images/sabrina-005.jpg"];
 document.querySelectorAll(".instagram-grid > div").forEach((slot, index) => {
   const img = document.createElement("img");
   img.src = instagramPosts[index];
@@ -95,7 +74,6 @@ document.querySelectorAll(".instagram-grid > div").forEach((slot, index) => {
   slot.replaceChildren(img);
 });
 
-// WhatsApp flotante: icono real sobre el verde de la identidad visual.
 const whatsappFloat = document.querySelector(".whatsapp-float");
 if (whatsappFloat) {
   const icon = document.createElement("img");
@@ -110,7 +88,6 @@ if (whatsappFloat) {
   whatsappFloat.replaceChildren(icon);
 }
 
-// La atención presencial se realiza en dos consultorios de La Plata.
 const clinicGrid = document.querySelector(".clinic-grid");
 if (clinicGrid) {
   clinicGrid.innerHTML = `
@@ -118,112 +95,46 @@ if (clinicGrid) {
       <p class="eyebrow">Consultorios</p>
       <h2>Encontrémonos en La Plata.</h2>
       <div class="clinic-list">
-        ${SITE_CONFIG.clinics
-          .map(
-            (clinic) => `
-              <article class="clinic-card">
-                <h3>${clinic.name}</h3>
-                <p>${clinic.address}<br>La Plata, Buenos Aires</p>
-                <a class="button button-small" href="${clinic.mapsUrl}" target="_blank" rel="noopener noreferrer">Cómo llegar</a>
-              </article>
-            `,
-          )
-          .join("")}
+        ${SITE_CONFIG.clinics.map((clinic) => `
+          <article class="clinic-card">
+            <h3>${clinic.name}</h3>
+            <p>${clinic.address}<br>La Plata, Buenos Aires</p>
+            <a class="button button-small" href="${clinic.mapsUrl}" target="_blank" rel="noopener noreferrer">Cómo llegar</a>
+          </article>
+        `).join("")}
       </div>
       <p class="online-note">También podés realizar tu consulta de manera online desde cualquier punto de Argentina.</p>
     </div>
-    <div class="map-placeholder">
-      La Plata<br><small>Atención presencial en dos consultorios</small>
-    </div>
+    <div class="map-placeholder">La Plata<br><small>Atención presencial en dos consultorios</small></div>
   `;
 }
 
-// Estilos específicos para los nuevos assets y la sección de consultorios.
 const dynamicStyles = document.createElement("style");
 dynamicStyles.textContent = `
-  .photo-placeholder.has-real-photo {
-    padding: 0;
-    overflow: hidden;
-    background: var(--sand);
-  }
-  .real-photo {
-    width: 100%;
-    height: 100%;
-    min-height: inherit;
-    display: block;
-    object-fit: cover;
-  }
-  .instagram-grid div {
-    overflow: hidden;
-  }
-  .instagram-photo {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    transition: transform .3s ease;
-  }
-  .instagram-grid div:hover .instagram-photo {
-    transform: scale(1.03);
-  }
-  .whatsapp-float {
-    background: var(--sage);
-    color: #fff;
-    display: grid;
-    place-items: center;
-    box-shadow: 0 12px 28px rgba(40,48,41,.18);
-  }
-  .whatsapp-float img {
-    display: block;
-  }
-  .clinic-list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-    margin-top: 28px;
-  }
-  .clinic-card {
-    padding: 22px;
-    background: var(--cream);
-    border: 1px solid rgba(40,48,41,.08);
-  }
-  .clinic-card h3 {
-    font-family: var(--serif);
-    font-size: 23px;
-    font-weight: 500;
-    margin-bottom: 8px;
-  }
-  .clinic-card p {
-    color: var(--muted);
-    font-size: 13px;
-    margin: 0 0 16px;
-  }
-  .clinic-card .button {
-    min-height: 38px;
-    padding-inline: 15px;
-    font-size: 11px;
-  }
-  @media (max-width: 760px) {
-    .clinic-list {
-      grid-template-columns: 1fr;
-    }
-  }
+  .photo-placeholder.has-real-photo { padding: 0; overflow: hidden; background: var(--sand); }
+  .real-photo { width: 100%; height: 100%; min-height: inherit; display: block; object-fit: cover; }
+  .instagram-grid div { overflow: hidden; }
+  .instagram-photo { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .3s ease; }
+  .instagram-grid div:hover .instagram-photo { transform: scale(1.03); }
+  .whatsapp-float { background: var(--sage); color: #fff; display: grid; place-items: center; box-shadow: 0 12px 28px rgba(40,48,41,.18); }
+  .whatsapp-float img { display: block; }
+  .clinic-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; margin-top: 28px; }
+  .clinic-card { padding: 22px; background: var(--cream); border: 1px solid rgba(40,48,41,.08); }
+  .clinic-card h3 { font-family: var(--serif); font-size: 23px; font-weight: 500; margin-bottom: 8px; }
+  .clinic-card p { color: var(--muted); font-size: 13px; margin: 0 0 16px; }
+  .clinic-card .button { min-height: 38px; padding-inline: 15px; font-size: 11px; }
+  @media (max-width: 760px) { .clinic-list { grid-template-columns: 1fr; } }
 `;
 document.head.appendChild(dynamicStyles);
 
 const toggle = document.querySelector(".menu-toggle");
 const menu = document.querySelector(".main-menu");
-
 toggle?.addEventListener("click", () => {
   const open = menu.classList.toggle("open");
   toggle.setAttribute("aria-expanded", open);
 });
-
-document.querySelectorAll(".main-menu a").forEach((a) =>
-  a.addEventListener("click", () => {
-    menu.classList.remove("open");
-    toggle?.setAttribute("aria-expanded", "false");
-  }),
-);
-
+document.querySelectorAll(".main-menu a").forEach((a) => a.addEventListener("click", () => {
+  menu.classList.remove("open");
+  toggle?.setAttribute("aria-expanded", "false");
+}));
 document.getElementById("year").textContent = new Date().getFullYear();
