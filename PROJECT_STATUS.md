@@ -3,7 +3,7 @@
 Documento vivo del proyecto. Se actualiza a medida que avanzamos para conservar decisiones, alcance, estado y próximos pasos.
 
 **Última actualización:** 2026-09-15
-**Versión de referencia:** V0 / prototipo funcional
+**Versión de referencia:** V0.1 — contenido y branding integrado
 **Branch:** `main`
 
 ---
@@ -72,47 +72,22 @@ La dirección visual validada es:
 - Evitar estética excesivamente clínica.
 - Evitar estética agresiva o estereotipada de fitness.
 
-La primera maqueta fue aprobada como referencia visual. Los placeholders deben reemplazarse posteriormente por los assets reales.
+La primera maqueta fue aprobada como referencia visual.
 
 ---
 
 ## 4. Estructura actual de la landing
 
 1. Navbar
-   - Logo / marca.
-   - Sobre mí.
-   - Mi enfoque.
-   - Servicios.
-   - FAQ.
-   - Consultorio.
-   - Reservar turno.
-
 2. Hero
-   - Presentación profesional.
-   - Propuesta de valor.
-   - CTA principal: Reservar turno.
-   - CTA secundario: Hablar por WhatsApp.
-   - La Plata / consultas online.
-
 3. Sobre mí
-
 4. Mi enfoque
-   - Evidencia.
-   - Personalización.
-   - Hábitos.
-
 5. Servicios
-
 6. ¿Para quién es?
-
 7. Instagram
-
 8. FAQ
-
 9. Consultorio / ubicación
-
 10. CTA final
-
 11. Footer
 
 También existe un botón flotante de WhatsApp y navegación responsive para mobile.
@@ -183,9 +158,9 @@ El programa debe destacarse visualmente como servicio de mayor valor.
 
 ---
 
-## 6. Estado actual — V0
+## 6. Estado actual — V0.1
 
-### Desarrollado
+### Completado
 
 - [x] Estructura HTML de la landing.
 - [x] Diseño responsive base.
@@ -198,56 +173,77 @@ El programa debe destacarse visualmente como servicio de mayor valor.
 - [x] Diferenciación visual del programa de recomposición corporal.
 - [x] Indicación de modalidad de antropometría presencial.
 - [x] Sección de público objetivo.
-- [x] Instagram placeholder.
 - [x] FAQ.
-- [x] Consultorio / ubicación placeholder.
 - [x] CTA final.
 - [x] Footer.
 - [x] Botón flotante de WhatsApp.
+- [x] Copy validado.
+- [x] Número y mensaje de WhatsApp confirmados.
+- [x] Links reales de Instagram y LinkedIn cargados/confirmados por el usuario.
+- [x] Assets de branding disponibles en `assets/images/`.
+- [x] `logo-gris.jpeg` integrado en la marca del header/footer.
 
-### Pendiente de definición / implementación
+### Pendiente
 
-- [ ] Logo definitivo.
-- [ ] Fotografías reales.
-- [ ] Copy final validado con Sabrina.
-- [ ] Links reales de Instagram y LinkedIn.
-- [ ] Número y mensaje definitivo de WhatsApp.
+- [ ] Fotografías reales de Sabrina.
+- [ ] Posts reales de Instagram.
 - [ ] URL real de Calendly.
 - [ ] Google Maps/embed definitivo.
-- [ ] Posts reales de Instagram.
 - [ ] Favicon.
 - [ ] Open Graph / imagen para compartir.
 - [ ] Sitemap y robots.txt.
 - [ ] Schema.org.
+- [ ] Revisión final de responsive y accesibilidad.
+- [ ] Performance / optimización de imágenes.
 - [ ] Analítica.
 - [ ] Dominio definitivo.
 - [ ] Publicación final.
 
+### Nota técnica
+
+El `main.js` actualmente contiene todavía `calendlyUrl: "https://calendly.com/REEMPLAZAR"`; Calendly sigue siendo el principal placeholder funcional pendiente.
+
 ---
 
-## 7. Roadmap propuesto
+## 7. Assets disponibles
+
+Actualmente el repositorio contiene:
+
+- `assets/images/logo-gris.jpeg`
+- `assets/images/logo-transparente.jpeg`
+- `assets/images/logo-instagram.png`
+- `assets/images/logo-linkedin.png`
+- `assets/images/logo-tiktok.png`
+- `assets/images/logo-whatsapp.png`
+
+El próximo trabajo visual es definir cuál versión del logo conviene utilizar en cada contexto y cargar las fotografías reales.
+
+---
+
+## 8. Roadmap
 
 ### V0 — Prototipo funcional
 
-**Estado: completado / en revisión.**
+**Estado: completado.**
 
-Objetivo: validar estructura, contenido general y dirección visual.
+Validación de estructura, contenido general y dirección visual.
 
-### V0.1 — Contenido y assets reales
+### V0.1 — Contenido y branding real
 
-- Reemplazar placeholders.
-- Incorporar logo.
-- Incorporar fotografías.
-- Validar textos.
-- Cargar datos reales de contacto y redes.
+**Estado: en curso / parcialmente completado.**
+
+- Logo integrado.
+- Copy validado.
+- Redes sociales confirmadas.
+- WhatsApp confirmado.
+- Fotografías pendientes.
+- Contenido visual de Instagram pendiente.
 
 ### V0.2 — Conversión e integraciones
 
 - Calendly.
-- WhatsApp Business.
 - Google Maps.
-- Links sociales.
-- Revisar CTAs y flujo de reserva.
+- Revisión completa de CTAs y flujo de reserva.
 - Evaluar Mercado Pago si corresponde al proceso de contratación/pago.
 
 ### V0.3 — Calidad técnica
@@ -269,17 +265,17 @@ Objetivo: validar estructura, contenido general y dirección visual.
 - HTTPS.
 - Analytics.
 - Meta Pixel si resulta útil.
-- Verificación de formularios, links y CTAs.
+- Verificación final de links, CTAs e integraciones.
 - Revisión final en desktop y mobile.
 
 ---
 
-## 8. Decisiones de diseño / producto
+## 9. Decisiones de diseño / producto
 
 - La página debe priorizar claridad sobre cantidad de contenido.
 - El CTA principal debe ser siempre reconocible.
 - WhatsApp funciona como alternativa para personas que prefieren consultar antes de reservar.
-- Los servicios deben mostrar precio de forma transparente.
+- Los servicios muestran precio de forma transparente.
 - Las diferencias entre modalidad online y presencial deben quedar claras.
 - Antropometría es presencial por naturaleza.
 - El Programa de recomposición corporal debe percibirse como una propuesta de acompañamiento de mayor valor, no simplemente como otra consulta.
@@ -287,7 +283,7 @@ Objetivo: validar estructura, contenido general y dirección visual.
 
 ---
 
-## 9. Stack y arquitectura
+## 10. Stack y arquitectura
 
 Actualmente es un sitio estático:
 
@@ -305,16 +301,19 @@ La idea es mantener la arquitectura simple mientras el proyecto no requiera func
 
 ---
 
-## 10. Historial de cambios
+## 11. Historial de cambios
 
-### 2026-09-15
+### 2026-09-15 — V0.1
 
-- Se consolidó el README como documentación general del proyecto.
-- Se creó este `PROJECT_STATUS.md` como documento vivo del proyecto.
-- Se registraron las credenciales profesionales definitivas.
-- Se registraron los cuatro servicios y precios definitivos.
-- Se documentaron modalidades y prestaciones.
-- Se estableció el roadmap V0 → V0.1 → V0.2 → V0.3 → V1.0.
+- Se consolidó el README como documentación general.
+- Se creó `PROJECT_STATUS.md` como documento vivo.
+- Se registraron credenciales, servicios, precios y modalidades definitivas.
+- Se confirmó que el copy está validado.
+- Se confirmó el número y mensaje de WhatsApp.
+- Se confirmó que Instagram y LinkedIn ya tienen links reales en el repositorio.
+- Se verificaron los assets de branding existentes.
+- Se integró `logo-gris.jpeg` reemplazando el placeholder visual de la marca.
+- Se identificó Calendly como el principal placeholder funcional pendiente.
 
 ### Próximas actualizaciones
 
@@ -322,7 +321,7 @@ Cada cambio relevante de estructura, copy, diseño, funcionalidad, integración 
 
 ---
 
-## 11. Regla para futuras iteraciones
+## 12. Regla para futuras iteraciones
 
 Antes de realizar cambios importantes en el código:
 
