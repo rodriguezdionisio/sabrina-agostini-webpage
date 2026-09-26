@@ -79,44 +79,17 @@ if (whatsappFloat) {
   const icon = document.createElement("img");
   icon.src = "assets/images/logo-whatsapp.png";
   icon.alt = "WhatsApp";
-  icon.width = 28;
-  icon.height = 28;
-  icon.style.width = "28px";
-  icon.style.height = "28px";
-  icon.style.objectFit = "contain";
     whatsappFloat.replaceChildren(icon);
-}
-
-const clinicGrid = document.querySelector(".clinic-grid");
-if (clinicGrid) {
-  clinicGrid.innerHTML = `
-    <div>
-      <p class="eyebrow">Consultorios</p>
-      <h2>Encontrémonos en La Plata.</h2>
-      <div class="clinic-list">
-        ${SITE_CONFIG.clinics.map((clinic) => `
-          <article class="clinic-card">
-            <h3>${clinic.name}</h3>
-            <p>${clinic.address}<br>La Plata, Buenos Aires</p>
-            <a class="button button-small" href="${clinic.mapsUrl}" target="_blank" rel="noopener noreferrer">Cómo llegar</a>
-          </article>
-        `).join("")}
-      </div>
-      <p class="online-note">También podés realizar tu consulta de manera online desde cualquier punto de Argentina.</p>
-    </div>
-    <div class="map-placeholder"><iframe title="Cirec Kinesiología y fisioterapia en La Plata" src="https://www.google.com/maps?q=Cirec+Kinesiolog%C3%ADa+y+fisioterapia,+Calle+35+828,+La+Plata,+Buenos+Aires&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
-  `;
 }
 
 const dynamicStyles = document.createElement("style");
 dynamicStyles.textContent = `
   .photo-placeholder.has-real-photo { padding: 0; overflow: hidden; background: var(--sand); }
   .real-photo { width: 100%; height: 100%; min-height: inherit; display: block; object-fit: cover; }
-  .instagram-grid div { overflow: hidden; }
-  .instagram-photo { width: 100%; height: 100%; display: block; object-fit: contain; transition: transform .3s ease; background: var(--cream); }
+  .instagram-grid div { overflow: visible; }
+  .instagram-photo { width: 100%; height: auto; display: block; object-fit: initial; transition: transform .3s ease; background: transparent; }
   .instagram-grid div:hover .instagram-photo { transform: scale(1.03); }
   .whatsapp-float { background: var(--sage); color: #fff; display: grid; place-items: center; box-shadow: 0 12px 28px rgba(40,48,41,.18); }
-  .whatsapp-float img { display: block; }
   .clinic-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; margin-top: 28px; }
   .clinic-card { padding: 22px; background: var(--cream); border: 1px solid rgba(40,48,41,.08); }
   .clinic-card h3 { font-family: var(--serif); font-size: 23px; font-weight: 500; margin-bottom: 8px; }
