@@ -52,7 +52,6 @@ La comunicación puede atraer especialmente a personas interesadas en composici�
 
 ### Consultorios
 
-- **Ondas de Choque:** Av. 13 Nº 493, La Plata, Buenos Aires.
 - **Cirec:** Calle 35 Nº 828, La Plata, Buenos Aires.
 
 ---
@@ -184,8 +183,8 @@ El programa debe destacarse visualmente como servicio de mayor valor.
 - [x] Assets de branding disponibles en `assets/images/`.
 - [x] `logo-gris.jpeg` integrado en la marca del header/footer.
 - [x] Fotografías reales integradas en Hero, Sobre mí e Instagram.
-- [x] Consultorios de Ondas de Choque y Cirec integrados.
-- [x] Links directos a las fichas correspondientes de Google Maps.
+- [x] Consultorio Cirec integrado.
+- [x] Link directo a la ficha de Cirec en Google Maps.
 - [x] Botón flotante de WhatsApp con icono SVG visible, sin depender del asset PNG.
 - [x] Tarjetas de consultorios igualadas verticalmente para alinear direcciones y botones.
 
