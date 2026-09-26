@@ -1,5 +1,5 @@
 const SITE_CONFIG = {
-  calendlyUrl: "https://calendly.com/REEMPLAZAR",
+  calendlyUrl: "https://nutreando.com/sabrina-agostini/reservar?step=service",
   whatsappNumber: "5492804634763",
   whatsappMessage: "Hola, quería consultar por los turnos de nutrición.",
   instagramUrl: "https://instagram.com/lic.agostini.nutricion",
@@ -13,7 +13,7 @@ const SITE_CONFIG = {
     {
       name: "Cirec",
       address: "Calle 35 Nº 828",
-      mapsUrl: "https://www.google.com/maps/search/?api=1&query=Calle+35+828,+La+Plata,+Buenos+Aires",
+      mapsUrl: "https://maps.app.goo.gl/kwDjUVU7ErWvgsZ29",
     },
   ],
 };
@@ -63,7 +63,7 @@ photoSlots.forEach((slot, index) => {
   slot.classList.add("has-real-photo");
 });
 
-const instagramPosts = ["assets/images/sabrina-003.jpg", "assets/images/sabrina-004.jpg", "assets/images/sabrina-005.jpg"];
+const instagramPosts = ["assets/images/Instagram-post-fractura-error.jpeg", "assets/images/Instagram-post-hidratacion-gym.jpeg", "assets/images/Instagram-post-multivitaminico.jpeg"];
 document.querySelectorAll(".instagram-grid > div").forEach((slot, index) => {
   const img = document.createElement("img");
   img.src = instagramPosts[index];
