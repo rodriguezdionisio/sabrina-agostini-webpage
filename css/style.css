@@ -688,3 +688,69 @@ details p{
     padding: 80px 0
   }
 }
+
+/* V0.2.0 — static assets and scalable clinic cards */
+.brand-mark{
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 0;
+  display: block;
+  flex: 0 0 auto;
+  font-size: 0;
+}
+.brand-logo{
+  display: block;
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+.instagram-grid div{
+  aspect-ratio: auto;
+  overflow: visible;
+}
+.instagram-photo{
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: initial;
+  background: transparent;
+  transform: none;
+}
+.instagram-grid div:hover .instagram-photo{
+  transform: none;
+}
+.clinic-list{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 30px;
+}
+.clinic-card{
+  padding: 0 22px 22px;
+  background: var(--cream);
+  border: 1px solid rgba(40,48,41,.08);
+  display: flex;
+  flex-direction: column;
+  min-height: 190px;
+}
+.clinic-card h3{
+  font-family: var(--serif);
+  font-size: 23px;
+  font-weight: 500;
+  margin: 22px 0 4px;
+}
+.clinic-card p{
+  color: var(--muted);
+  font-size: 13px;
+  margin: 0 0 16px;
+}
+.clinic-card .button{
+  margin-top: auto;
+  align-self: flex-start;
+}
+@media(max-width:760px){
+  .clinic-list{
+    grid-template-columns: 1fr;
+  }
+}
