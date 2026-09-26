@@ -84,8 +84,7 @@ if (whatsappFloat) {
   icon.style.width = "28px";
   icon.style.height = "28px";
   icon.style.objectFit = "contain";
-  icon.style.filter = "brightness(0) invert(1)";
-  whatsappFloat.replaceChildren(icon);
+    whatsappFloat.replaceChildren(icon);
 }
 
 const clinicGrid = document.querySelector(".clinic-grid");
@@ -105,7 +104,7 @@ if (clinicGrid) {
       </div>
       <p class="online-note">También podés realizar tu consulta de manera online desde cualquier punto de Argentina.</p>
     </div>
-    <div class="map-placeholder">La Plata<br><small>Atención presencial en dos consultorios</small></div>
+    <div class="map-placeholder"><iframe title="Cirec Kinesiología y fisioterapia en La Plata" src="https://www.google.com/maps?q=Cirec+Kinesiolog%C3%ADa+y+fisioterapia,+Calle+35+828,+La+Plata,+Buenos+Aires&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
   `;
 }
 
@@ -114,7 +113,7 @@ dynamicStyles.textContent = `
   .photo-placeholder.has-real-photo { padding: 0; overflow: hidden; background: var(--sand); }
   .real-photo { width: 100%; height: 100%; min-height: inherit; display: block; object-fit: cover; }
   .instagram-grid div { overflow: hidden; }
-  .instagram-photo { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .3s ease; }
+  .instagram-photo { width: 100%; height: 100%; display: block; object-fit: contain; transition: transform .3s ease; background: var(--cream); }
   .instagram-grid div:hover .instagram-photo { transform: scale(1.03); }
   .whatsapp-float { background: var(--sage); color: #fff; display: grid; place-items: center; box-shadow: 0 12px 28px rgba(40,48,41,.18); }
   .whatsapp-float img { display: block; }
