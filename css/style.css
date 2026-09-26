@@ -427,7 +427,7 @@ h2{
   gap: 14px
 }
 .instagram-grid div{
-  aspect-ratio: 4 / 5;
+  aspect-ratio: auto;
   background: var(--sand);
   display: grid;
   place-items: center;
@@ -574,13 +574,6 @@ details p{
   font-weight: 700;
   box-shadow: 0 12px 30px rgba(0,0,0,.18);
   z-index: 40
-}
-.whatsapp-float img{
-  width: 29px;
-  height: 29px;
-  display: block;
-  object-fit: contain;
-  filter: brightness(0) invert(1)
 }
 @media(max-width:900px){
   .container{
