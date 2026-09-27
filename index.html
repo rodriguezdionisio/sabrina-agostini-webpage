@@ -42,15 +42,22 @@
           "@id": "https://sabrinaagostininutricion.com.ar/#website",
           "url": "https://sabrinaagostininutricion.com.ar/",
           "name": "Sabrina Agostini Nutrición",
-          "inLanguage": "es-AR"
+          "inLanguage": "es-AR",
+          "publisher": {
+            "@id": "https://sabrinaagostininutricion.com.ar/#servicio-profesional"
+          }
         },
         {
           "@type": "Person",
           "@id": "https://sabrinaagostininutricion.com.ar/#sabrina-agostini",
           "name": "Sabrina Agostini",
           "url": "https://sabrinaagostininutricion.com.ar/",
+          "image": "https://sabrinaagostininutricion.com.ar/assets/images/sabrina-001.jpeg",
           "jobTitle": "Licenciada en Nutrición",
           "description": "Licenciada en Nutrición, Técnica en Alimentos y especializada en nutrición deportiva.",
+          "worksFor": {
+            "@id": "https://sabrinaagostininutricion.com.ar/#servicio-profesional"
+          },
           "sameAs": [
             "https://instagram.com/lic.agostini.nutricion",
             "https://linkedin.com/in/lic-agostini-nutricion"
@@ -67,9 +74,24 @@
           "@id": "https://sabrinaagostininutricion.com.ar/#servicio-profesional",
           "name": "Sabrina Agostini Nutrición",
           "url": "https://sabrinaagostininutricion.com.ar/",
+          "logo": "https://sabrinaagostininutricion.com.ar/assets/images/logo-gris.jpeg",
           "image": "https://sabrinaagostininutricion.com.ar/assets/images/sabrina-001.jpeg",
           "description": "Consultas de nutrición presenciales en La Plata y online en Argentina, con enfoque basado en evidencia, personalización y hábitos sostenibles.",
           "telephone": "+54 9 280 463 4763",
+          "priceRange": "ARS 35.000–145.000",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Calle 35 Nº 828",
+            "addressLocality": "La Plata",
+            "addressRegion": "Buenos Aires",
+            "addressCountry": "AR"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -34.9073525,
+            "longitude": -57.969977
+          },
+          "hasMap": "https://www.google.com/maps/place/Cirec+Kinesiolog%C3%ADa+y+fisioterapia/@-34.9073525,-57.9717977,17z/",
           "areaServed": [
             {
               "@type": "City",
@@ -80,51 +102,79 @@
               "name": "Argentina"
             }
           ],
-          "location": {
-            "@type": "Place",
-            "name": "Cirec",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Calle 35 Nº 828",
-              "addressLocality": "La Plata",
-              "addressRegion": "Buenos Aires",
-              "addressCountry": "AR"
-            }
-          },
           "sameAs": [
             "https://instagram.com/lic.agostini.nutricion",
             "https://linkedin.com/in/lic-agostini-nutricion"
           ],
+          "potentialAction": {
+            "@type": "ReserveAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://nutreando.com/sabrina-agostini/reservar?step=service",
+              "actionPlatform": [
+                "https://schema.org/DesktopWebPlatform",
+                "https://schema.org/MobileWebPlatform"
+              ]
+            },
+            "result": {
+              "@type": "Reservation",
+              "name": "Reserva de consulta nutricional"
+            }
+          },
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "Servicios de nutrición",
             "itemListElement": [
               {
                 "@type": "Offer",
+                "price": "45000",
+                "priceCurrency": "ARS",
+                "url": "https://nutreando.com/sabrina-agostini/reservar?step=service",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Consulta inicial"
+                  "name": "Consulta inicial",
+                  "provider": {
+                    "@id": "https://sabrinaagostininutricion.com.ar/#servicio-profesional"
+                  }
                 }
               },
               {
                 "@type": "Offer",
+                "price": "35000",
+                "priceCurrency": "ARS",
+                "url": "https://nutreando.com/sabrina-agostini/reservar?step=service",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Consulta de seguimiento"
+                  "name": "Consulta de seguimiento",
+                  "provider": {
+                    "@id": "https://sabrinaagostininutricion.com.ar/#servicio-profesional"
+                  }
                 }
               },
               {
                 "@type": "Offer",
+                "price": "35000",
+                "priceCurrency": "ARS",
+                "url": "https://sabrinaagostininutricion.com.ar/#servicios",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Antropometría: Evaluación de composición corporal"
+                  "name": "Antropometría: Evaluación de composición corporal",
+                  "provider": {
+                    "@id": "https://sabrinaagostininutricion.com.ar/#servicio-profesional"
+                  }
                 }
               },
               {
                 "@type": "Offer",
+                "price": "145000",
+                "priceCurrency": "ARS",
+                "url": "https://nutreando.com/sabrina-agostini/reservar?step=service",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Programa de recomposición corporal"
+                  "name": "Programa de recomposición corporal",
+                  "provider": {
+                    "@id": "https://sabrinaagostininutricion.com.ar/#servicio-profesional"
+                  }
                 }
               }
             ]
@@ -144,6 +194,7 @@
           "mainEntity": {
             "@id": "https://sabrinaagostininutricion.com.ar/#servicio-profesional"
           },
+          "primaryImageOfPage": "https://sabrinaagostininutricion.com.ar/assets/images/sabrina-001.jpeg",
           "inLanguage": "es-AR"
         }
       ]
