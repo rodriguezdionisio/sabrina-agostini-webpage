@@ -369,6 +369,7 @@ La idea es mantener la arquitectura simple mientras el proyecto no requiera func
 - Se incorporó consentimiento previo para servicios opcionales y se bloqueó el mapa embebido hasta aceptar o cargarlo manualmente.
 - Se configuró Meta Pixel (`1598224428515477`) detrás del consentimiento, con eventos de visita, lead, reserva y contacto.
 - Se agregaron eventos de ubicación y parámetros para distinguir el servicio y la posición de cada CTA.
+- Se agregó la metaetiqueta de verificación de dominio de Meta.
 - Quedó pendiente la validación en Google Search Console.
 
 ### Próximas actualizaciones
