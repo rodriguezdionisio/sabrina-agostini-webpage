@@ -43,6 +43,7 @@ if (year) year.textContent = new Date().getFullYear();
 const CONSENT_KEY = "sabrina_privacy_consent_v1";
 const META_PIXEL_ID = "1598224428515477";
 const GA_MEASUREMENT_ID = "G-TFH4YVML9Q";
+const META_SETUP_MODE = new URLSearchParams(window.location.search).get("meta_setup") === "1";
 let metaPixelInitialized = false;
 let metaPageViewTracked = false;
 let googleAnalyticsInitialized = false;
@@ -51,6 +52,8 @@ let mapViewObserver = null;
 let mapViewTracked = false;
 
 function readConsent() {
+  if (META_SETUP_MODE) return "accepted";
+
   try {
     return localStorage.getItem(CONSENT_KEY);
   } catch {
@@ -369,7 +372,9 @@ createGoogleAnalyticsQueue();
 registerMetaCtaEvents();
 
 const savedConsent = readConsent();
-if (savedConsent === "accepted" || savedConsent === "rejected") {
+if (META_SETUP_MODE) {
+  applyConsent("accepted");
+} else if (savedConsent === "accepted" || savedConsent === "rejected") {
   applyConsent(savedConsent);
 } else {
   consentBanner.hidden = false;

@@ -373,6 +373,7 @@ La idea es mantener la arquitectura simple mientras el proyecto no requiera func
 - Se agregó la metaetiqueta de verificación de dominio de Meta.
 - Se configuró Google Analytics 4 con Consent Mode básico, visitas y eventos equivalentes a los de Meta.
 - Se añadió una espera breve antes de abrir Nutreando o WhatsApp para asegurar el envío de eventos de conversión.
+- Se habilitó temporalmente el parámetro técnico `?meta_setup=1` para que Meta detecte el píxel sin omitir el consentimiento para visitantes normales.
 - Quedó pendiente la validación en Google Search Console.
 
 ### Próximas actualizaciones
