@@ -354,6 +354,7 @@ La idea es mantener la arquitectura simple mientras el proyecto no requiera func
 - Se incorporó Google Maps embebido en la sección Consultorios.
 - Se actualizaron las referencias anteriores a Calendly para reflejar la integración definitiva con Nutreando.
 - Se ampliaron los datos estructurados con información local, catálogo de servicios, precios y acción de reserva.
+- Se agregó el código postal `1900` a la dirección estructurada del consultorio.
 - Quedaron pendientes una imagen Open Graph dedicada y la validación en Google Search Console.
 
 ### Próximas actualizaciones
