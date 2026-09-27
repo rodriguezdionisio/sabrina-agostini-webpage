@@ -201,7 +201,7 @@ El programa debe destacarse visualmente como servicio de mayor valor.
 - [ ] Revisión final de responsive y accesibilidad.
 - [x] Primera optimización mobile: WebP responsivos, dimensiones explícitas y fuentes no bloqueantes.
 - [ ] Nueva medición de Core Web Vitals después de la publicación.
-- [x] Meta Pixel con `PageView`, `Lead`, `ReservationClick` y `Contact`, condicionado al consentimiento.
+- [x] Meta Pixel con `PageView`, `Lead`, `ReservationClick`, `Contact`, `FindLocation` y `MapView`, condicionado al consentimiento.
 - [x] Política de privacidad y consentimiento para servicios opcionales.
 - [x] Dominio definitivo: `sabrinaagostininutricion.com.ar`.
 - [ ] Publicación final.
@@ -368,6 +368,7 @@ La idea es mantener la arquitectura simple mientras el proyecto no requiera func
 - Se agregó la página de privacidad, el enlace permanente desde el footer y un control para revisar preferencias.
 - Se incorporó consentimiento previo para servicios opcionales y se bloqueó el mapa embebido hasta aceptar o cargarlo manualmente.
 - Se configuró Meta Pixel (`1598224428515477`) detrás del consentimiento, con eventos de visita, lead, reserva y contacto.
+- Se agregaron eventos de ubicación y parámetros para distinguir el servicio y la posición de cada CTA.
 - Quedó pendiente la validación en Google Search Console.
 
 ### Próximas actualizaciones

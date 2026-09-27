@@ -44,6 +44,8 @@ const CONSENT_KEY = "sabrina_privacy_consent_v1";
 const META_PIXEL_ID = "1598224428515477";
 let metaPixelInitialized = false;
 let metaPageViewTracked = false;
+let mapViewObserver = null;
+let mapViewTracked = false;
 
 function readConsent() {
   try {
@@ -127,20 +129,55 @@ function revokeMetaPixelConsent() {
   }
 }
 
+function startMapViewTracking() {
+  const map = document.querySelector(".map-placeholder");
+  if (!map || mapViewTracked || mapViewObserver || !("IntersectionObserver" in window)) return;
+
+  mapViewObserver = new IntersectionObserver((entries) => {
+    if (!entries.some((entry) => entry.isIntersecting)) return;
+
+    trackMetaEvent("trackCustom", "MapView", getCtaParameters(map, "map"));
+    mapViewTracked = true;
+    mapViewObserver.disconnect();
+    mapViewObserver = null;
+  }, { threshold: 0.35 });
+
+  mapViewObserver.observe(map);
+}
+
+function stopMapViewTracking() {
+  mapViewObserver?.disconnect();
+  mapViewObserver = null;
+}
+
 function getCtaLocation(link) {
   if (link.classList.contains("whatsapp-float")) return "floating_whatsapp";
   if (link.closest(".site-header")) return "header";
   if (link.closest(".hero")) return "hero";
   if (link.closest(".service-card")) return "services";
+  if (link.closest("#consultorio")) return "consultorio";
   if (link.closest(".final-cta")) return "final_cta";
   if (link.closest(".site-footer")) return "footer";
   return "page";
+}
+
+function getServiceName(link) {
+  const serviceTitle = link.closest(".service-card")?.querySelector("h3")?.textContent;
+  if (!serviceTitle) return "general";
+
+  return serviceTitle
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "_")
+    .replace(/^_|_$/g, "");
 }
 
 function getCtaParameters(link, leadType) {
   return {
     lead_type: leadType,
     cta_location: getCtaLocation(link),
+    service_name: getServiceName(link),
     cta_text: (link.textContent || link.getAttribute("aria-label") || "").trim().slice(0, 100),
   };
 }
@@ -166,6 +203,13 @@ function registerMetaCtaEvents() {
       trackMetaEvent("track", "Contact", parameters);
     });
   });
+
+  document.querySelectorAll('a[href*="google.com/maps"]').forEach((link) => {
+    link.addEventListener("click", () => {
+      trackMetaEvent("track", "FindLocation", getCtaParameters(link, "location"));
+    });
+  });
+
 }
 
 function createConsentBanner() {
@@ -195,10 +239,12 @@ function applyConsent(value) {
   if (value === "accepted") {
     loadMap();
     loadMetaPixel();
+    startMapViewTracking();
   }
   if (value === "rejected") {
     unloadMap();
     revokeMetaPixelConsent();
+    stopMapViewTracking();
   }
   window.sabrinaConsent = value;
   consentBanner.hidden = true;
