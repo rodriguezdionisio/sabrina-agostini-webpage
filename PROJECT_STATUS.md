@@ -197,6 +197,7 @@ El programa debe destacarse visualmente como servicio de mayor valor.
 - [ ] Imagen Open Graph dedicada (1200 × 630).
 - [x] Sitemap y robots.txt.
 - [x] Schema.org (Person, ProfessionalService, WebSite y WebPage).
+- [x] Datos estructurados locales ampliados con dirección, geolocalización, mapa, logo, precios, servicios y reserva en Nutreando.
 - [ ] Revisión final de responsive y accesibilidad.
 - [ ] Performance / optimización de imágenes.
 - [ ] Analítica.
@@ -352,6 +353,7 @@ La idea es mantener la arquitectura simple mientras el proyecto no requiera func
 - Se integró la agenda real mediante Nutreando en los CTAs de reserva.
 - Se incorporó Google Maps embebido en la sección Consultorios.
 - Se actualizaron las referencias anteriores a Calendly para reflejar la integración definitiva con Nutreando.
+- Se ampliaron los datos estructurados con información local, catálogo de servicios, precios y acción de reserva.
 - Quedaron pendientes una imagen Open Graph dedicada y la validación en Google Search Console.
 
 ### Próximas actualizaciones
