@@ -194,7 +194,7 @@ El programa debe destacarse visualmente como servicio de mayor valor.
 
 - [x] Favicon básico usando el logo actual.
 - [x] Open Graph / metadata social con imagen actual.
-- [ ] Imagen Open Graph dedicada (1200 × 630).
+- [x] Imagen Open Graph dedicada (1200 × 630).
 - [x] Sitemap y robots.txt.
 - [x] Schema.org (Person, ProfessionalService, WebSite y WebPage).
 - [x] Datos estructurados locales ampliados con dirección, geolocalización, mapa, logo, precios, servicios y reserva en Nutreando.
@@ -275,7 +275,7 @@ Validación de estructura, contenido general y dirección visual.
 - [x] Sitemap.
 - [x] robots.txt.
 - [x] Schema.org.
-- [ ] Imagen Open Graph dedicada.
+- [x] Imagen Open Graph dedicada.
 - [ ] Validación en Google Search Console.
 - [ ] Revisión de Core Web Vitals / performance.
 
@@ -361,7 +361,8 @@ La idea es mantener la arquitectura simple mientras el proyecto no requiera func
 - Se redujo el peso del logo y del icono flotante de WhatsApp.
 - Se agregaron dimensiones explícitas a las imágenes y carga asíncrona de recursos no críticos.
 - Se hizo no bloqueante la carga de Google Fonts y se corrigió el desbordamiento horizontal del menú mobile.
-- Quedaron pendientes una imagen Open Graph dedicada y la validación en Google Search Console.
+- Se creó e integró una imagen Open Graph dedicada de 1200 × 630 para previews sociales.
+- Quedó pendiente la validación en Google Search Console.
 
 ### Próximas actualizaciones
 
