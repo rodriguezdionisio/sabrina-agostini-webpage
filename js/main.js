@@ -42,8 +42,11 @@ if (year) year.textContent = new Date().getFullYear();
 
 const CONSENT_KEY = "sabrina_privacy_consent_v1";
 const META_PIXEL_ID = "1598224428515477";
+const GA_MEASUREMENT_ID = "G-TFH4YVML9Q";
 let metaPixelInitialized = false;
 let metaPageViewTracked = false;
+let googleAnalyticsInitialized = false;
+let googlePageViewTracked = false;
 let mapViewObserver = null;
 let mapViewTracked = false;
 
@@ -129,6 +132,70 @@ function revokeMetaPixelConsent() {
   }
 }
 
+function createGoogleAnalyticsQueue() {
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function () {
+    window.dataLayer.push(arguments);
+  };
+
+  if (!window.sabrinaGoogleConsentDefaultsSet) {
+    window.gtag("consent", "default", {
+      ad_storage: "denied",
+      analytics_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+    });
+    window.sabrinaGoogleConsentDefaultsSet = true;
+  }
+}
+
+function loadGoogleAnalytics() {
+  createGoogleAnalyticsQueue();
+  window.gtag("consent", "update", {
+    ad_storage: "denied",
+    analytics_storage: "granted",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+  });
+
+  if (!document.getElementById("google-analytics-script")) {
+    const script = document.createElement("script");
+    script.id = "google-analytics-script";
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+    document.head.appendChild(script);
+  }
+
+  if (!googleAnalyticsInitialized) {
+    window.gtag("js", new Date());
+    window.gtag("config", GA_MEASUREMENT_ID, {
+      send_page_view: false,
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false,
+    });
+    googleAnalyticsInitialized = true;
+  }
+
+  if (!googlePageViewTracked) {
+    window.gtag("event", "page_view", {
+      page_title: document.title,
+      page_location: window.location.href,
+      page_path: window.location.pathname,
+    });
+    googlePageViewTracked = true;
+  }
+}
+
+function revokeGoogleAnalyticsConsent() {
+  createGoogleAnalyticsQueue();
+  window.gtag("consent", "update", {
+    ad_storage: "denied",
+    analytics_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+  });
+}
+
 function startMapViewTracking() {
   const map = document.querySelector(".map-placeholder");
   if (!map || mapViewTracked || mapViewObserver || !("IntersectionObserver" in window)) return;
@@ -137,6 +204,7 @@ function startMapViewTracking() {
     if (!entries.some((entry) => entry.isIntersecting)) return;
 
     trackMetaEvent("trackCustom", "MapView", getCtaParameters(map, "map"));
+    trackGoogleEvent("map_view", getCtaParameters(map, "map"));
     mapViewTracked = true;
     mapViewObserver.disconnect();
     mapViewObserver = null;
@@ -187,12 +255,19 @@ function trackMetaEvent(eventType, eventName, parameters) {
   window.fbq(eventType, eventName, parameters);
 }
 
+function trackGoogleEvent(eventName, parameters) {
+  if (readConsent() !== "accepted" || !googleAnalyticsInitialized || typeof window.gtag !== "function") return;
+  window.gtag("event", eventName, parameters);
+}
+
 function registerMetaCtaEvents() {
   document.querySelectorAll('a[href*="nutreando.com"]').forEach((link) => {
     link.addEventListener("click", () => {
       const parameters = getCtaParameters(link, "reservation");
       trackMetaEvent("track", "Lead", parameters);
       trackMetaEvent("trackCustom", "ReservationClick", parameters);
+      trackGoogleEvent("generate_lead", parameters);
+      trackGoogleEvent("reservation_click", parameters);
     });
   });
 
@@ -201,12 +276,16 @@ function registerMetaCtaEvents() {
       const parameters = getCtaParameters(link, "whatsapp");
       trackMetaEvent("track", "Lead", parameters);
       trackMetaEvent("track", "Contact", parameters);
+      trackGoogleEvent("generate_lead", parameters);
+      trackGoogleEvent("contact_click", parameters);
     });
   });
 
   document.querySelectorAll('a[href*="google.com/maps"]').forEach((link) => {
     link.addEventListener("click", () => {
-      trackMetaEvent("track", "FindLocation", getCtaParameters(link, "location"));
+      const parameters = getCtaParameters(link, "location");
+      trackMetaEvent("track", "FindLocation", parameters);
+      trackGoogleEvent("find_location", parameters);
     });
   });
 
@@ -222,7 +301,7 @@ function createConsentBanner() {
   banner.innerHTML = `
     <div class="consent-copy">
       <strong id="consent-title">Tu privacidad importa</strong>
-      <p>Usamos almacenamiento técnico para recordar tu elección. Con tu permiso también podemos cargar Google Maps y Meta Pixel para medir visitas e interacciones. <a href="privacidad.html">Ver política de privacidad</a>.</p>
+      <p>Usamos almacenamiento técnico para recordar tu elección. Con tu permiso también podemos cargar Google Maps, Google Analytics y Meta Pixel para medir visitas e interacciones. <a href="privacidad.html">Ver política de privacidad</a>.</p>
     </div>
     <div class="consent-actions">
       <button class="button button-secondary" type="button" data-consent-reject>Rechazar opcionales</button>
@@ -239,11 +318,13 @@ function applyConsent(value) {
   if (value === "accepted") {
     loadMap();
     loadMetaPixel();
+    loadGoogleAnalytics();
     startMapViewTracking();
   }
   if (value === "rejected") {
     unloadMap();
     revokeMetaPixelConsent();
+    revokeGoogleAnalyticsConsent();
     stopMapViewTracking();
   }
   window.sabrinaConsent = value;
@@ -267,6 +348,7 @@ document.querySelectorAll("[data-privacy-settings]").forEach((button) => {
 });
 
 document.querySelector("[data-load-map]")?.addEventListener("click", loadMap);
+createGoogleAnalyticsQueue();
 registerMetaCtaEvents();
 
 const savedConsent = readConsent();
