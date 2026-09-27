@@ -260,24 +260,41 @@ function trackGoogleEvent(eventName, parameters) {
   window.gtag("event", eventName, parameters);
 }
 
+function continueExternalNavigationAfterTracking(event, link) {
+  if (
+    readConsent() !== "accepted" ||
+    event.defaultPrevented ||
+    event.metaKey ||
+    event.ctrlKey ||
+    event.shiftKey ||
+    event.altKey ||
+    link.target === "_blank"
+  ) return;
+
+  event.preventDefault();
+  window.setTimeout(() => window.location.assign(link.href), 180);
+}
+
 function registerMetaCtaEvents() {
   document.querySelectorAll('a[href*="nutreando.com"]').forEach((link) => {
-    link.addEventListener("click", () => {
+    link.addEventListener("click", (event) => {
       const parameters = getCtaParameters(link, "reservation");
       trackMetaEvent("track", "Lead", parameters);
       trackMetaEvent("trackCustom", "ReservationClick", parameters);
       trackGoogleEvent("generate_lead", parameters);
       trackGoogleEvent("reservation_click", parameters);
+      continueExternalNavigationAfterTracking(event, link);
     });
   });
 
   document.querySelectorAll('a[href^="https://wa.me/"]:not([data-no-meta-event])').forEach((link) => {
-    link.addEventListener("click", () => {
+    link.addEventListener("click", (event) => {
       const parameters = getCtaParameters(link, "whatsapp");
       trackMetaEvent("track", "Lead", parameters);
       trackMetaEvent("track", "Contact", parameters);
       trackGoogleEvent("generate_lead", parameters);
       trackGoogleEvent("contact_click", parameters);
+      continueExternalNavigationAfterTracking(event, link);
     });
   });
 

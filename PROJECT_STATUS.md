@@ -372,6 +372,7 @@ La idea es mantener la arquitectura simple mientras el proyecto no requiera func
 - Se agregaron eventos de ubicación y parámetros para distinguir el servicio y la posición de cada CTA.
 - Se agregó la metaetiqueta de verificación de dominio de Meta.
 - Se configuró Google Analytics 4 con Consent Mode básico, visitas y eventos equivalentes a los de Meta.
+- Se añadió una espera breve antes de abrir Nutreando o WhatsApp para asegurar el envío de eventos de conversión.
 - Quedó pendiente la validación en Google Search Console.
 
 ### Próximas actualizaciones
