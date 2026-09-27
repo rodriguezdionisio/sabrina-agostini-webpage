@@ -798,3 +798,151 @@ details p{
     height:46px;
   }
 }
+
+/* V0.3.0 — privacy page and consent controls */
+.footer-link-button{
+  appearance:none;
+  border:0;
+  padding:0;
+  background:transparent;
+  color:inherit;
+  font:inherit;
+  cursor:pointer;
+}
+.footer-links a:hover,
+.footer-link-button:hover{
+  color:#fff;
+}
+.consent-banner{
+  position:fixed;
+  z-index:100;
+  right:22px;
+  bottom:22px;
+  width:min(620px,calc(100% - 44px));
+  padding:24px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  gap:24px;
+  background:var(--cream);
+  border:1px solid var(--line);
+  box-shadow:0 20px 55px rgba(40,48,41,.2);
+}
+.consent-banner[hidden]{
+  display:none;
+}
+.consent-copy strong{
+  display:block;
+  margin-bottom:5px;
+  font-family:var(--serif);
+  font-size:20px;
+  font-weight:500;
+}
+.consent-copy p{
+  margin:0;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.55;
+}
+.consent-copy a,
+.privacy-content a{
+  color:var(--sage-dark);
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+.consent-actions{
+  display:flex;
+  flex-direction:column-reverse;
+  gap:9px;
+}
+.consent-actions .button{
+  min-width:155px;
+  padding:11px 16px;
+  font-size:10px;
+}
+.map-consent{
+  max-width:310px;
+  padding:26px;
+  background:rgba(248,245,238,.9);
+  border:1px solid var(--line);
+}
+.map-consent[hidden]{
+  display:none;
+}
+.map-consent p{
+  margin:0 0 16px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.55;
+  text-transform:none;
+  letter-spacing:0;
+}
+.privacy-back{
+  color:var(--sage-dark);
+  font-size:13px;
+  font-weight:600;
+}
+.privacy-hero{
+  padding:100px 0 70px;
+  background:var(--beige);
+}
+.privacy-container{
+  width:min(760px,calc(100% - 48px));
+}
+.privacy-hero h1{
+  margin-bottom:20px;
+  font-size:clamp(48px,7vw,78px);
+}
+.privacy-hero p{
+  max-width:650px;
+  margin:0 0 22px;
+  color:var(--muted);
+  font-size:17px;
+}
+.privacy-hero small{
+  color:var(--muted);
+  font-size:11px;
+}
+.privacy-content{
+  padding:85px 0 110px;
+}
+.privacy-content article+article{
+  margin-top:52px;
+  padding-top:52px;
+  border-top:1px solid var(--line);
+}
+.privacy-content h2{
+  margin:0 0 18px;
+  font-size:30px;
+}
+.privacy-content p{
+  margin:0 0 15px;
+  color:var(--muted);
+}
+.privacy-settings-button{
+  margin-top:10px;
+}
+@media(max-width:720px){
+  .consent-banner{
+    right:16px;
+    bottom:16px;
+    width:calc(100% - 32px);
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+  .consent-actions{
+    flex-direction:column-reverse;
+  }
+  .consent-actions .button{
+    width:100%;
+  }
+  .privacy-hero{
+    padding:72px 0 55px;
+  }
+  .privacy-content{
+    padding:65px 0 85px;
+  }
+  .privacy-container{
+    width:min(100% - 36px,760px);
+  }
+}

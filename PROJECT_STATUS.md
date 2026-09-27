@@ -202,6 +202,7 @@ El programa debe destacarse visualmente como servicio de mayor valor.
 - [x] Primera optimización mobile: WebP responsivos, dimensiones explícitas y fuentes no bloqueantes.
 - [ ] Nueva medición de Core Web Vitals después de la publicación.
 - [ ] Analítica.
+- [x] Política de privacidad y consentimiento para servicios opcionales.
 - [x] Dominio definitivo: `sabrinaagostininutricion.com.ar`.
 - [ ] Publicación final.
 
@@ -278,6 +279,7 @@ Validación de estructura, contenido general y dirección visual.
 - [x] Imagen Open Graph dedicada.
 - [ ] Validación en Google Search Console.
 - [ ] Revisión de Core Web Vitals / performance.
+- [x] Página de privacidad y control de consentimiento.
 
 ### V1.0 — Publicación
 
@@ -287,6 +289,7 @@ Validación de estructura, contenido general y dirección visual.
 - [x] HTTPS.
 - Analytics.
 - Meta Pixel si resulta útil.
+- [x] Base de consentimiento previa a Meta Pixel y analítica.
 - Verificación final de links, CTAs e integraciones.
 - Revisión final en desktop y mobile.
 
@@ -362,6 +365,8 @@ La idea es mantener la arquitectura simple mientras el proyecto no requiera func
 - Se agregaron dimensiones explícitas a las imágenes y carga asíncrona de recursos no críticos.
 - Se hizo no bloqueante la carga de Google Fonts y se corrigió el desbordamiento horizontal del menú mobile.
 - Se creó e integró una imagen Open Graph dedicada de 1200 × 630 para previews sociales.
+- Se agregó la página de privacidad, el enlace permanente desde el footer y un control para revisar preferencias.
+- Se incorporó consentimiento previo para servicios opcionales y se bloqueó el mapa embebido hasta aceptar o cargarlo manualmente.
 - Quedó pendiente la validación en Google Search Console.
 
 ### Próximas actualizaciones
