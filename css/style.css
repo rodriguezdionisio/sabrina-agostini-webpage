@@ -16,14 +16,16 @@
   box-sizing: border-box
 }
 html{
-  scroll-behavior: smooth
+  scroll-behavior: smooth;
+  overflow-x: hidden
 }
 body{
   margin: 0;
   color: var(--ink);
   background: var(--cream);
   font-family: var(--sans);
-  line-height: 1.65
+  line-height: 1.65;
+  overflow-x: hidden
 }
 a{
   color: inherit;
@@ -702,6 +704,12 @@ details p{
   padding:0;
   overflow:hidden;
   background:var(--sand);
+}
+.photo-placeholder.has-real-photo picture{
+  width:100%;
+  height:100%;
+  min-height:inherit;
+  display:block;
 }
 .real-photo{
   width:100%;

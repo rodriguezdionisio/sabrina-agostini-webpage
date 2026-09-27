@@ -199,7 +199,8 @@ El programa debe destacarse visualmente como servicio de mayor valor.
 - [x] Schema.org (Person, ProfessionalService, WebSite y WebPage).
 - [x] Datos estructurados locales ampliados con dirección, geolocalización, mapa, logo, precios, servicios y reserva en Nutreando.
 - [ ] Revisión final de responsive y accesibilidad.
-- [ ] Performance / optimización de imágenes.
+- [x] Primera optimización mobile: WebP responsivos, dimensiones explícitas y fuentes no bloqueantes.
+- [ ] Nueva medición de Core Web Vitals después de la publicación.
 - [ ] Analítica.
 - [x] Dominio definitivo: `sabrinaagostininutricion.com.ar`.
 - [ ] Publicación final.
@@ -264,7 +265,8 @@ Validación de estructura, contenido general y dirección visual.
 
 - Responsive completo.
 - Accesibilidad.
-- Performance.
+- [x] Primera optimización de imágenes y ruta crítica de renderizado.
+- [ ] Iteración de performance basada en la nueva medición publicada.
 - [x] SEO on-page base.
 - [x] Metadata principal.
 - [x] Canonical.
@@ -355,6 +357,10 @@ La idea es mantener la arquitectura simple mientras el proyecto no requiera func
 - Se actualizaron las referencias anteriores a Calendly para reflejar la integración definitiva con Nutreando.
 - Se ampliaron los datos estructurados con información local, catálogo de servicios, precios y acción de reserva.
 - Se agregó el código postal `1900` a la dirección estructurada del consultorio.
+- Se incorporaron imágenes WebP responsivas para Hero y Sobre mí.
+- Se redujo el peso del logo y del icono flotante de WhatsApp.
+- Se agregaron dimensiones explícitas a las imágenes y carga asíncrona de recursos no críticos.
+- Se hizo no bloqueante la carga de Google Fonts y se corrigió el desbordamiento horizontal del menú mobile.
 - Quedaron pendientes una imagen Open Graph dedicada y la validación en Google Search Console.
 
 ### Próximas actualizaciones
