@@ -41,6 +41,9 @@ const year = document.getElementById("year");
 if (year) year.textContent = new Date().getFullYear();
 
 const CONSENT_KEY = "sabrina_privacy_consent_v1";
+const META_PIXEL_ID = "1598224428515477";
+let metaPixelInitialized = false;
+let metaPageViewTracked = false;
 
 function readConsent() {
   try {
@@ -76,6 +79,95 @@ function unloadMap() {
   document.querySelector("[data-map-consent]")?.removeAttribute("hidden");
 }
 
+function createMetaPixelQueue() {
+  if (window.fbq) return;
+
+  const fbq = window.fbq = function () {
+    if (fbq.callMethod) {
+      fbq.callMethod.apply(fbq, arguments);
+    } else {
+      fbq.queue.push(arguments);
+    }
+  };
+
+  if (!window._fbq) window._fbq = fbq;
+  fbq.push = fbq;
+  fbq.loaded = true;
+  fbq.version = "2.0";
+  fbq.queue = [];
+}
+
+function loadMetaPixel() {
+  createMetaPixelQueue();
+
+  if (!document.getElementById("meta-pixel-script")) {
+    const script = document.createElement("script");
+    script.id = "meta-pixel-script";
+    script.async = true;
+    script.src = "https://connect.facebook.net/en_US/fbevents.js";
+    document.head.appendChild(script);
+  }
+
+  if (!metaPixelInitialized) {
+    window.fbq("init", META_PIXEL_ID);
+    metaPixelInitialized = true;
+  }
+
+  window.fbq("consent", "grant");
+
+  if (!metaPageViewTracked) {
+    window.fbq("track", "PageView");
+    metaPageViewTracked = true;
+  }
+}
+
+function revokeMetaPixelConsent() {
+  if (typeof window.fbq === "function") {
+    window.fbq("consent", "revoke");
+  }
+}
+
+function getCtaLocation(link) {
+  if (link.classList.contains("whatsapp-float")) return "floating_whatsapp";
+  if (link.closest(".site-header")) return "header";
+  if (link.closest(".hero")) return "hero";
+  if (link.closest(".service-card")) return "services";
+  if (link.closest(".final-cta")) return "final_cta";
+  if (link.closest(".site-footer")) return "footer";
+  return "page";
+}
+
+function getCtaParameters(link, leadType) {
+  return {
+    lead_type: leadType,
+    cta_location: getCtaLocation(link),
+    cta_text: (link.textContent || link.getAttribute("aria-label") || "").trim().slice(0, 100),
+  };
+}
+
+function trackMetaEvent(eventType, eventName, parameters) {
+  if (readConsent() !== "accepted" || typeof window.fbq !== "function") return;
+  window.fbq(eventType, eventName, parameters);
+}
+
+function registerMetaCtaEvents() {
+  document.querySelectorAll('a[href*="nutreando.com"]').forEach((link) => {
+    link.addEventListener("click", () => {
+      const parameters = getCtaParameters(link, "reservation");
+      trackMetaEvent("track", "Lead", parameters);
+      trackMetaEvent("trackCustom", "ReservationClick", parameters);
+    });
+  });
+
+  document.querySelectorAll('a[href^="https://wa.me/"]:not([data-no-meta-event])').forEach((link) => {
+    link.addEventListener("click", () => {
+      const parameters = getCtaParameters(link, "whatsapp");
+      trackMetaEvent("track", "Lead", parameters);
+      trackMetaEvent("track", "Contact", parameters);
+    });
+  });
+}
+
 function createConsentBanner() {
   const banner = document.createElement("section");
   banner.className = "consent-banner";
@@ -86,7 +178,7 @@ function createConsentBanner() {
   banner.innerHTML = `
     <div class="consent-copy">
       <strong id="consent-title">Tu privacidad importa</strong>
-      <p>Usamos almacenamiento técnico para recordar tu elección. Con tu permiso también podemos cargar servicios externos, como Google Maps, y futuras herramientas de medición. <a href="privacidad.html">Ver política de privacidad</a>.</p>
+      <p>Usamos almacenamiento técnico para recordar tu elección. Con tu permiso también podemos cargar Google Maps y Meta Pixel para medir visitas e interacciones. <a href="privacidad.html">Ver política de privacidad</a>.</p>
     </div>
     <div class="consent-actions">
       <button class="button button-secondary" type="button" data-consent-reject>Rechazar opcionales</button>
@@ -100,8 +192,14 @@ function createConsentBanner() {
 const consentBanner = createConsentBanner();
 
 function applyConsent(value) {
-  if (value === "accepted") loadMap();
-  if (value === "rejected") unloadMap();
+  if (value === "accepted") {
+    loadMap();
+    loadMetaPixel();
+  }
+  if (value === "rejected") {
+    unloadMap();
+    revokeMetaPixelConsent();
+  }
   window.sabrinaConsent = value;
   consentBanner.hidden = true;
   window.dispatchEvent(new CustomEvent("sabrina:consent-change", { detail: value }));
@@ -123,6 +221,7 @@ document.querySelectorAll("[data-privacy-settings]").forEach((button) => {
 });
 
 document.querySelector("[data-load-map]")?.addEventListener("click", loadMap);
+registerMetaCtaEvents();
 
 const savedConsent = readConsent();
 if (savedConsent === "accepted" || savedConsent === "rejected") {
