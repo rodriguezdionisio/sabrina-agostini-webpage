@@ -2,8 +2,8 @@
 
 Documento vivo del proyecto. Se actualiza a medida que avanzamos para conservar decisiones, alcance, estado y próximos pasos.
 
-**Última actualización:** 2026-09-15
-**Versión de referencia:** V0.1 — contenido y branding integrado
+**Última actualización:** 2026-09-27
+**Versión de referencia:** V0.3 — SEO y metadata
 **Branch:** `main`
 
 ---
@@ -192,14 +192,15 @@ El programa debe destacarse visualmente como servicio de mayor valor.
 
 - [ ] URL real de Calendly.
 - [ ] Google Maps/embed visual definitivo.
-- [ ] Favicon.
-- [ ] Open Graph / imagen para compartir.
-- [ ] Sitemap y robots.txt.
-- [ ] Schema.org.
+- [x] Favicon básico usando el logo actual.
+- [x] Open Graph / metadata social con imagen actual.
+- [ ] Imagen Open Graph dedicada (1200 × 630).
+- [x] Sitemap y robots.txt.
+- [x] Schema.org (Person, ProfessionalService, WebSite y WebPage).
 - [ ] Revisión final de responsive y accesibilidad.
 - [ ] Performance / optimización de imágenes.
 - [ ] Analítica.
-- [ ] Dominio definitivo.
+- [x] Dominio definitivo: `sabrinaagostininutricion.com.ar`.
 - [ ] Publicación final.
 
 ### Nota técnica
@@ -255,21 +256,29 @@ Validación de estructura, contenido general y dirección visual.
 
 ### V0.3 — Calidad técnica
 
+**Estado: en progreso.**
+
 - Responsive completo.
 - Accesibilidad.
 - Performance.
-- SEO on-page.
-- Favicon.
-- Open Graph.
-- Sitemap.
-- robots.txt.
-- Schema.org.
+- [x] SEO on-page base.
+- [x] Metadata principal.
+- [x] Canonical.
+- [x] Open Graph y Twitter Cards.
+- [x] Favicon básico.
+- [x] Sitemap.
+- [x] robots.txt.
+- [x] Schema.org.
+- [ ] Imagen Open Graph dedicada.
+- [ ] Validación en Google Search Console.
+- [ ] Revisión de Core Web Vitals / performance.
 
 ### V1.0 — Publicación
 
-- Dominio definitivo `.com.ar`.
-- Hosting / GitHub Pages u otra alternativa.
-- HTTPS.
+- [x] Dominio definitivo: `sabrinaagostininutricion.com.ar`.
+- [x] Hosting en GitHub Pages.
+- [x] DNS gestionado con Cloudflare.
+- [x] HTTPS.
 - Analytics.
 - Meta Pixel si resulta útil.
 - Verificación final de links, CTAs e integraciones.
@@ -327,6 +336,17 @@ La idea es mantener la arquitectura simple mientras el proyecto no requiera func
 - Se reemplazó el icono PNG del botón flotante de WhatsApp por un SVG inline para asegurar su visibilidad.
 - Se ajustó la estructura de las tarjetas de consultorios para alinear verticalmente direcciones y botones.
 - Se identificó Calendly como el principal placeholder funcional pendiente.
+
+### 2026-09-27 — V0.3
+
+- Se configuró el dominio definitivo `sabrinaagostininutricion.com.ar`.
+- Se agregó metadata SEO orientada a búsquedas de nutrición en La Plata y atención online.
+- Se agregó canonical.
+- Se configuraron Open Graph y Twitter Cards.
+- Se agregó favicon básico utilizando el logo actual.
+- Se incorporó Schema.org con Person, ProfessionalService, WebSite y WebPage.
+- Se crearon `robots.txt` y `sitemap.xml`.
+- Quedaron pendientes una imagen Open Graph dedicada y la validación en Google Search Console.
 
 ### Próximas actualizaciones
 
