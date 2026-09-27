@@ -185,13 +185,13 @@ El programa debe destacarse visualmente como servicio de mayor valor.
 - [x] Fotografías reales integradas en Hero, Sobre mí e Instagram.
 - [x] Consultorio Cirec integrado.
 - [x] Link directo a la ficha de Cirec en Google Maps.
+- [x] Google Maps embebido en la sección Consultorios.
+- [x] Agenda real integrada mediante Nutreando (`https://nutreando.com/sabrina-agostini/reservar?step=service`).
 - [x] Botón flotante de WhatsApp con icono SVG visible, sin depender del asset PNG.
 - [x] Tarjetas de consultorios igualadas verticalmente para alinear direcciones y botones.
 
 ### Pendiente
 
-- [ ] URL real de Calendly.
-- [ ] Google Maps/embed visual definitivo.
 - [x] Favicon básico usando el logo actual.
 - [x] Open Graph / metadata social con imagen actual.
 - [ ] Imagen Open Graph dedicada (1200 × 630).
@@ -205,7 +205,7 @@ El programa debe destacarse visualmente como servicio de mayor valor.
 
 ### Nota técnica
 
-El `main.js` actualmente contiene todavía `calendlyUrl: "https://calendly.com/REEMPLAZAR"`; Calendly sigue siendo el principal placeholder funcional pendiente.
+La reserva de turnos está integrada mediante Nutreando. Los CTAs principales apuntan a `https://nutreando.com/sabrina-agostini/reservar?step=service`. Google Maps está embebido en la sección Consultorios y se conserva además el enlace directo a la ficha de Cirec.
 
 ---
 
@@ -245,14 +245,17 @@ Validación de estructura, contenido general y dirección visual.
 - WhatsApp confirmado.
 - Fotografías reales integradas.
 - Contenido visual de Instagram integrado.
-- Consultorios y links de Google Maps integrados.
+- Consultorios, enlace directo y mapa embebido de Google Maps integrados.
+- Agenda real de Nutreando integrada.
 
 ### V0.2 — Conversión e integraciones
 
-- Calendly.
-- Google Maps/embed visual definitivo.
-- Revisión completa de CTAs y flujo de reserva.
-- Evaluar Mercado Pago si corresponde al proceso de contratación/pago.
+**Estado: completado en sus integraciones principales.**
+
+- [x] Agenda real de Nutreando.
+- [x] Google Maps embebido.
+- [x] CTAs principales conectados al flujo de reserva.
+- [ ] Evaluar Mercado Pago si corresponde al proceso de contratación/pago.
 
 ### V0.3 — Calidad técnica
 
@@ -335,7 +338,7 @@ La idea es mantener la arquitectura simple mientras el proyecto no requiera func
 - Se integraron los dos consultorios con sus fichas de Google Maps.
 - Se reemplazó el icono PNG del botón flotante de WhatsApp por un SVG inline para asegurar su visibilidad.
 - Se ajustó la estructura de las tarjetas de consultorios para alinear verticalmente direcciones y botones.
-- Se identificó Calendly como el principal placeholder funcional pendiente.
+- Se identificó la integración de agenda como el principal placeholder funcional pendiente.
 
 ### 2026-09-27 — V0.3
 
@@ -346,6 +349,9 @@ La idea es mantener la arquitectura simple mientras el proyecto no requiera func
 - Se agregó favicon básico utilizando el logo actual.
 - Se incorporó Schema.org con Person, ProfessionalService, WebSite y WebPage.
 - Se crearon `robots.txt` y `sitemap.xml`.
+- Se integró la agenda real mediante Nutreando en los CTAs de reserva.
+- Se incorporó Google Maps embebido en la sección Consultorios.
+- Se actualizaron las referencias anteriores a Calendly para reflejar la integración definitiva con Nutreando.
 - Quedaron pendientes una imagen Open Graph dedicada y la validación en Google Search Console.
 
 ### Próximas actualizaciones
