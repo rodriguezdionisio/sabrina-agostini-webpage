@@ -689,68 +689,71 @@ details p{
   }
 }
 
-/* V0.2.0 — static assets and scalable clinic cards */
-.brand-mark{
-  width: 42px;
-  height: 42px;
-  border: 0;
-  border-radius: 0;
-  display: block;
-  flex: 0 0 auto;
-  font-size: 0;
-}
+
+/* V0.2.1 — restore previous responsive layout; keep current assets/clinic data */
 .brand-logo{
-  display: block;
-  width: 42px;
-  height: 42px;
-  object-fit: contain;
+  width:38px;
+  height:38px;
+  object-fit:contain;
+  border-radius:50%;
+  display:block;
+}
+.photo-placeholder.has-real-photo{
+  padding:0;
+  overflow:hidden;
+  background:var(--sand);
+}
+.real-photo{
+  width:100%;
+  height:100%;
+  min-height:inherit;
+  display:block;
+  object-fit:cover;
 }
 .instagram-grid div{
-  aspect-ratio: auto;
-  overflow: visible;
+  overflow:visible;
 }
 .instagram-photo{
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: initial;
-  background: transparent;
-  transform: none;
-}
-.instagram-grid div:hover .instagram-photo{
-  transform: none;
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:initial;
+  background:transparent;
 }
 .clinic-list{
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-  margin-top: 30px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+  margin-top:28px;
 }
 .clinic-card{
-  padding: 0 22px 22px;
-  background: var(--cream);
-  border: 1px solid rgba(40,48,41,.08);
-  display: flex;
-  flex-direction: column;
-  min-height: 190px;
+  padding:22px;
+  background:var(--cream);
+  border:1px solid rgba(40,48,41,.08);
+  display:flex;
+  flex-direction:column;
+  min-height:190px;
 }
 .clinic-card h3{
-  font-family: var(--serif);
-  font-size: 23px;
-  font-weight: 500;
-  margin: 22px 0 4px;
+  font-family:var(--serif);
+  font-size:23px;
+  font-weight:500;
+  margin:0 0 8px;
 }
 .clinic-card p{
-  color: var(--muted);
-  font-size: 13px;
-  margin: 0 0 16px;
+  color:var(--muted);
+  font-size:13px;
+  margin:0 0 16px;
 }
 .clinic-card .button{
-  margin-top: auto;
-  align-self: flex-start;
+  min-height:38px;
+  padding-inline:15px;
+  font-size:11px;
+  margin-top:auto;
+  align-self:flex-start;
 }
-@media(max-width:760px){
-  .clinic-list{
-    grid-template-columns: 1fr;
-  }
+.whatsapp-float img{
+  width:28px;
+  height:28px;
+  object-fit:contain;
 }
