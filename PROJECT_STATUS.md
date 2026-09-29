@@ -224,10 +224,14 @@ Actualmente el repositorio contiene:
 - `assets/images/logo-tiktok.png`
 - `assets/images/logo-whatsapp.png`
 - `assets/images/sabrina-001.jpeg`
+- `assets/images/sabrina-hero-consultorio-480.webp`
+- `assets/images/sabrina-hero-consultorio-768.webp`
+- `assets/images/sabrina-hero-consultorio-1080.webp`
 - `assets/images/sabrina-002.jpeg`
 - `assets/images/sabrina-003.jpg`
 - `assets/images/sabrina-004.jpg`
 - `assets/images/sabrina-005.jpg`
+- `assets/images/og-sabrina-agostini.jpg`
 
 ---
 
@@ -380,6 +384,8 @@ La idea es mantener la arquitectura simple mientras el proyecto no requiera func
 
 - Se reemplazó la imagen Open Graph por la nueva composición de marca y fotografía profesional.
 - Se versionó la URL de la imagen social para evitar que Facebook, WhatsApp y otras plataformas conserven el preview anterior en caché.
+- Se redistribuyó la composición Open Graph dentro de una zona segura central para evitar cortes en la miniatura de WhatsApp, manteniendo el estándar 1200 × 630.
+- Se reemplazó la fotografía del hero por el recorte vertical aprobado y se generaron variantes WebP responsivas de 480, 768 y 1080 px.
 
 ### Próximas actualizaciones
 
