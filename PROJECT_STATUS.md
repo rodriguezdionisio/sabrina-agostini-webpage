@@ -2,7 +2,7 @@
 
 Documento vivo del proyecto. Se actualiza a medida que avanzamos para conservar decisiones, alcance, estado y próximos pasos.
 
-**Última actualización:** 2026-09-27
+**Última actualización:** 2026-09-29
 **Versión de referencia:** V0.3 — SEO y metadata
 **Branch:** `main`
 
@@ -375,6 +375,11 @@ La idea es mantener la arquitectura simple mientras el proyecto no requiera func
 - Se añadió una espera breve antes de abrir Nutreando o WhatsApp para asegurar el envío de eventos de conversión.
 - Se habilitó temporalmente el parámetro técnico `?meta_setup=1` para que Meta detecte el píxel sin omitir el consentimiento para visitantes normales.
 - Quedó pendiente la validación en Google Search Console.
+
+### 2026-09-29 — Imagen social
+
+- Se reemplazó la imagen Open Graph por la nueva composición de marca y fotografía profesional.
+- Se versionó la URL de la imagen social para evitar que Facebook, WhatsApp y otras plataformas conserven el preview anterior en caché.
 
 ### Próximas actualizaciones
 
